@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.turgunboyevjurabek.startup.fragment.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_harifFragment"
+            app:destination="@id/harifFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_selectFragment"
+            app:destination="@id/selectFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_meditFragment"
+            app:destination="@id/meditFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_fanFragment"
+            app:destination="@id/fanFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/harifFragment"
+        android:name="com.turgunboyevjurabek.startup.fragment.Itemlar.HarifFragment"
+        android:label="fragment_harif"
+        tools:layout="@layout/fragment_harif" >
+        <action
+            android:id="@+id/action_harifFragment_to_selectFragment"
+            app:destination="@id/selectFragment" />
+        <action
+            android:id="@+id/action_harifFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectFragment"
+        android:name="com.turgunboyevjurabek.startup.fragment.select.SelectFragment"
+        android:label="fragment_select"
+        tools:layout="@layout/fragment_select" >
+        <action
+            android:id="@+id/action_selectFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/meditFragment"
+        android:name="com.turgunboyevjurabek.startup.fragment.Itemlar.MeditFragment"
+        android:label="fragment_medit"
+        tools:layout="@layout/fragment_medit" >
+        <action
+            android:id="@+id/action_meditFragment_to_selectFragment"
+            app:destination="@id/selectFragment" />
+        <action
+            android:id="@+id/action_meditFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fanFragment"
+        android:name="com.turgunboyevjurabek.startup.fragment.Itemlar.FanFragment"
+        android:label="fragment_fan"
+        tools:layout="@layout/fragment_fan" >
+        <action
+            android:id="@+id/action_fanFragment_to_selectFragment"
+            app:destination="@id/selectFragment" />
+        <action
+            android:id="@+id/action_fanFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+        <action
+            android:id="@+id/action_fanFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.turgunboyevjurabek.startup.fragment.Game.GameFragment"
+        android:label="fragment_game"
+        tools:layout="@layout/fragment_game" >
+        <action
+            android:id="@+id/action_gameFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.turgunboyevjurabek.startup.fragment.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" />
+</navigation>
