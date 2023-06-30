@@ -1,5 +1,6 @@
 package com.turgunboyevjurabek.startup.fragment.select
 
+import User
 import android.annotation.SuppressLint
 import android.app.ActionBar.LayoutParams
 import android.os.Bundle
@@ -16,14 +17,13 @@ import com.turgunboyevjurabek.startup.R
 import com.turgunboyevjurabek.startup.adapters.MyPagerAdapter
 import com.turgunboyevjurabek.startup.databinding.FragmentSelectBinding
 import com.turgunboyevjurabek.startup.databinding.ItemTabBinding
+import com.turgunboyevjurabek.startup.databinding.ItemViewBinding
 import com.turgunboyevjurabek.startup.madels.MyObeject
-import com.turgunboyevjurabek.startup.madels.User
 
 
 class SelectFragment : Fragment() {
     private val binding by lazy { FragmentSelectBinding.inflate(layoutInflater) }
     private lateinit var myPagerAdapter: MyPagerAdapter
-    private lateinit var list: ArrayList<User>
     private lateinit var list2: ArrayList<User>
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,10 +40,11 @@ class SelectFragment : Fragment() {
 
         return binding.root
     }
-
     @SuppressLint("ResourceAsColor")
     private fun loadData() {
      list2=arguments?.getSerializable("key11") as ArrayList<User>
+        val positions=arguments?.getInt("keyP")
+
         myPagerAdapter=MyPagerAdapter(list2)
         binding.myViewpager2.adapter=myPagerAdapter
 
@@ -60,6 +61,7 @@ class SelectFragment : Fragment() {
             val tab=binding.tabLayout.getTabAt(i)
             tab?.customView = itemTabBinding.root
         }
+        binding.myViewpager2.setCurrentItem(positions!!)
 
         binding.tabLayout.addOnTabSelectedListener(object:TabLayout.OnTabSelectedListener{
             override fun onTabSelected(tab: TabLayout.Tab?) {
@@ -81,6 +83,7 @@ class SelectFragment : Fragment() {
             override fun onTabReselected(tab: TabLayout.Tab?) {
             }
         })
+
         myPagerAdapter.notifyDataSetChanged()
     }
 }

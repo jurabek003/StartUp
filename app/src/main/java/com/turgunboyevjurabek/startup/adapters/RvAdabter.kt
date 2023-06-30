@@ -1,13 +1,14 @@
 package com.turgunboyevjurabek.startup.adapters
 
+import User
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.turgunboyevjurabek.startup.databinding.ItemRvBinding
-import com.turgunboyevjurabek.startup.madels.User
 
-class RvAdabter(val list: List<User>,val onClick: onClick):RecyclerView.Adapter<RvAdabter.Vh>() {
+
+class RvAdabter(val list: ArrayList<User>,val onClick: onClick):RecyclerView.Adapter<RvAdabter.Vh>() {
     inner class Vh(val itemRvBinding: ItemRvBinding):ViewHolder(itemRvBinding.root){
         fun onBind(user: User,position: Int){
             itemRvBinding.itemName.text=user.nomi.toString()

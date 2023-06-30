@@ -1,5 +1,6 @@
 package com.turgunboyevjurabek.startup.fragment.Itemlar
 
+import User
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,18 +11,18 @@ import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.turgunboyevjurabek.startup.DataBase.DataBase
 import com.turgunboyevjurabek.startup.R
 import com.turgunboyevjurabek.startup.adapters.RvAdabter
 import com.turgunboyevjurabek.startup.adapters.onClick
 import com.turgunboyevjurabek.startup.databinding.FragmentMeditBinding
 import com.turgunboyevjurabek.startup.madels.MyObeject
-import com.turgunboyevjurabek.startup.madels.User
 
 class MeditFragment : Fragment() {
     private val binding by lazy { FragmentMeditBinding.inflate(layoutInflater) }
     private lateinit var rvAdabter: RvAdabter
     private lateinit var list2: ArrayList<User>
-
+    private lateinit var dataBase: DataBase
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -41,32 +42,11 @@ class MeditFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        list2= ArrayList()
-        list2.addAll(listOf(User("shipris","davolash uchun",R.drawable.gif1),
-            User("maska","davolash uchun",R.drawable.gif3),
-            User("halat","davolash uchun",R.drawable.gif4),
-            User("dorilar","davolash uchun",R.drawable.gif5),
-            User("spirt","davolash uchun",R.drawable.gif6),
-            User("tez yordam","davolash uchun",R.drawable.gif7),
-            User("virach","davolash uchun",R.drawable.gif8),
-            User("nevropotolog","davolash uchun",R.drawable.gif9),
-            User("medik","davolash uchun",R.drawable.gif10),
-            User("aperatsiya","davolash uchun",R.drawable.gif11),
-            User("shipris","davolash uchun",R.drawable.gif2),
-            User("maska","davolash uchun",R.drawable.gif3),
-            User("halat","davolash uchun",R.drawable.gif4),
-            User("dorilar","davolash uchun",R.drawable.gif5),
-            User("spirt","davolash uchun",R.drawable.gif6),
-            User("tez yordam","davolash uchun",R.drawable.gif7),
-            User("virach","davolash uchun",R.drawable.gif8),
-            User("nevropotolog","davolash uchun",R.drawable.gif9),
-            User("medik","davolash uchun",R.drawable.gif10),
-            User("aperatsiya","davolash uchun",R.drawable.gif12)
-        ))
+        dataBase=DataBase(requireContext())
 
-        rvAdabter= RvAdabter(list2,object :onClick{
+        rvAdabter= RvAdabter(dataBase.getitemSelect(2),object :onClick{
             override fun select(user: User, position: Int) {
-                findNavController().navigate(R.id.selectFragment, bundleOf("key11" to list2))
+                findNavController().navigate(R.id.selectFragment, bundleOf("key11" to list2,"keyP" to position))
             } })
         rvAdabter.notifyDataSetChanged()
         binding.rv2.adapter=rvAdabter

@@ -1,10 +1,10 @@
 package com.turgunboyevjurabek.startup.adapters
+import User
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.turgunboyevjurabek.startup.databinding.ItemViewBinding
-import com.turgunboyevjurabek.startup.madels.User
 
 class MyPagerAdapter(val list: List<User>) :
     RecyclerView.Adapter<MyPagerAdapter.Vh>() {

@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_homeFragment_to_fanFragment"
             app:destination="@id/fanFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_cupFragment"
+            app:destination="@id/cupFragment" />
     </fragment>
     <fragment
         android:id="@+id/harifFragment"
@@ -84,5 +87,39 @@
         android:id="@+id/searchFragment"
         android:name="com.turgunboyevjurabek.startup.fragment.SearchFragment"
         android:label="fragment_search"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_itemSearchFragment"
+            app:destination="@id/itemSearchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemSearchFragment"
+        android:name="com.turgunboyevjurabek.startup.fragment.Itemlar.ItemSearchFragment"
+        android:label="fragment_item_search"
+        tools:layout="@layout/fragment_item_search" >
+        <action
+            android:id="@+id/action_itemSearchFragment_to_gameCupFragment"
+            app:destination="@id/gameCupFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cupFragment"
+        android:name="com.turgunboyevjurabek.startup.fragment.CupFragment"
+        android:label="fragment_cup"
+        tools:layout="@layout/fragment_cup" >
+        <action
+            android:id="@+id/action_cupFragment_to_gameCupFragment"
+            app:destination="@id/gameCupFragment" />
+        <action
+            android:id="@+id/action_cupFragment_to_itemSearchFragment"
+            app:destination="@id/itemSearchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameCupFragment"
+        android:name="com.turgunboyevjurabek.startup.fragment.Game.GameCupFragment"
+        tools:layout="@layout/fragment_game_cup"
+        android:label="GameCupFragment" >
+        <action
+            android:id="@+id/action_gameCupFragment_to_itemSearchFragment"
+            app:destination="@id/itemSearchFragment" />
+    </fragment>
 </navigation>
