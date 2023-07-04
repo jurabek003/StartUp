@@ -6,9 +6,9 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
-class DataBase(context: Context):SQLiteOpenHelper(context,"Allambalo",null,5),UserDao {
+class DataBase(context: Context):SQLiteOpenHelper(context,"Allambalo",null,6),UserDao {
     override fun onCreate(db: SQLiteDatabase?) {
-        val query="create table UserTable(id integer not null primary key  autoincrement unique, nomi text not null , description text not null, image integer not null, number integer not null,game integer not null, gameMemory text not null, gameTrue integer not null, gameFalse integer not null, Gnomi text not null )"
+        val query="create table UserTable(id integer not null primary key  autoincrement unique, nomi text not null , description text not null, image text not null, number integer not null,game integer not null, gameMemory text not null, gameTrue integer not null, gameFalse integer not null, Gnomi text not null )"
         //val query2="create table GamesTable(id integer not null primary key autoincrement unique, game integer not null, gameMemory text not null, gameTrue integer not null, gameFalse integer not null, Gnomi text not null) "
         db?.execSQL(query)
        // db?.execSQL(query2)
@@ -26,7 +26,7 @@ class DataBase(context: Context):SQLiteOpenHelper(context,"Allambalo",null,5),Us
                     cursor.getInt(0),
                     cursor.getString(1),
                     cursor.getString(2),
-                    cursor.getInt(3),
+                    cursor.getString(3),
                     cursor.getInt(4)
                 )
                 list.add(user)
@@ -49,7 +49,7 @@ class DataBase(context: Context):SQLiteOpenHelper(context,"Allambalo",null,5),Us
         db.insert("UserTable",null,contentValues)
     }
 
-    override fun getitemSelect(number2:Int): ArrayList<User> {
+    override fun getitemSelect(number2:Int?): ArrayList<User> {
         val list=ArrayList<User>()
         val db=readableDatabase
         val query="select *from UserTable where  number = ?"
@@ -60,7 +60,7 @@ class DataBase(context: Context):SQLiteOpenHelper(context,"Allambalo",null,5),Us
                     cursor.getInt(0),
                     cursor.getString(1),
                     cursor.getString(2),
-                    cursor.getInt(3),
+                    cursor.getString(3),
                     cursor.getInt(4)
                 )
                 list.add(user)
@@ -79,7 +79,7 @@ class DataBase(context: Context):SQLiteOpenHelper(context,"Allambalo",null,5),Us
                     cursor.getInt(0),
                     cursor.getString(1),
                     cursor.getString(2),
-                    cursor.getInt(3),
+                    cursor.getString(3),
                     cursor.getInt(4)
                 )
                 list.add(user)
@@ -130,7 +130,7 @@ class DataBase(context: Context):SQLiteOpenHelper(context,"Allambalo",null,5),Us
                         cursor.getInt(0),
                         cursor.getString(1),
                         cursor.getString(2),
-                        cursor.getInt(3),
+                        cursor.getString(3),
                         cursor.getInt(4),
                         cursor.getInt(5),
                         cursor.getString(6),

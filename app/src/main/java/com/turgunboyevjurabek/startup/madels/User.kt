@@ -1,5 +1,5 @@
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+
+import android.net.Uri
 import java.text.SimpleDateFormat
 import java.util.Date
 
@@ -12,7 +12,7 @@ class User {
 
     var description: String? = null
 
-    var gifImage: Int? = null
+    var gifImage: String? = null
 
     var nomeri: Int? = null
 
@@ -31,14 +31,14 @@ class User {
         // Bo'sh konstruktor
     }
 
-    constructor(nomi: String?, description: String?, gifImage: Int?, nomeri: Int?) {
+    constructor(nomi: String?, description: String?, gifImage: String?, nomeri: Int?) {
         this.nomi = nomi
         this.description = description
         this.gifImage = gifImage
         this.nomeri = nomeri
     }
 
-    constructor(id: Int?, nomi: String?, description: String?, gifImage: Int?, nomeri: Int?) {
+    constructor(id: Int?, nomi: String?, description: String?, gifImage: String?, nomeri: Int?) {
         this.id = id
         this.nomi = nomi
         this.description = description
@@ -73,7 +73,7 @@ class User {
         id: Int?,
         nomi: String?,
         description: String?,
-        gifImage: Int?,
+        gifImage: String?,
         nomeri: Int?,
         game: Int?,
         gameMemory: String,
@@ -96,7 +96,7 @@ class User {
     constructor(
         nomi: String?,
         description: String?,
-        gifImage: Int?,
+        gifImage: String?,
         nomeri: Int?,
         game: Int?,
         gameMemory: String,

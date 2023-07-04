@@ -2,6 +2,7 @@ package com.turgunboyevjurabek.startup.fragment.Game
 
 import User
 import android.annotation.SuppressLint
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -45,7 +46,7 @@ class GameFragment : Fragment() {
             return
         }
 
-        binding.gameGif.setImageResource(list[a].gifImage!!)
+        binding.gameGif.setImageURI(Uri.parse(list[a].gifImage!!))
         binding.btn1.setText(list[b].nomi)
         binding.btn2.setText(list[c].nomi)
         binding.btn3.setText(list[d].nomi)

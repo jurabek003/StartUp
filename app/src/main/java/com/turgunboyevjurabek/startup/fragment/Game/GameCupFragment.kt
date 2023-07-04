@@ -3,6 +3,7 @@ package com.turgunboyevjurabek.startup.fragment.Game
 import User
 import android.annotation.SuppressLint
 import android.content.DialogInterface
+import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import androidx.fragment.app.Fragment
@@ -91,7 +92,7 @@ class GameCupFragment : Fragment() {
             return
         }
 
-        binding.gameGif.setImageResource(list[a!!].gifImage!!)
+        binding.gameGif.setImageURI(Uri.parse(list[a!!].gifImage.toString()))
         binding.btn1.setText(list[b!!].nomi)
         binding.btn2.setText(list[c!!].nomi)
         binding.btn3.setText(list[d!!].nomi)
@@ -169,7 +170,7 @@ class GameCupFragment : Fragment() {
         if(game == list.size){
             val soat = SimpleDateFormat("dd:MM:yyyy_hh:mm:ss").format(Date())
             MyObeject.vaqt=soat
-            val user=User("","",123,12 ,gameNumber,soat,gameTrue,gameFalse,ItemName)
+            val user=User("","","123",12 ,gameNumber,soat,gameTrue,gameFalse,ItemName)
             dataBase.insertItem(user)
             gameTrue=0
             gameFalse=0
@@ -200,7 +201,7 @@ class GameCupFragment : Fragment() {
         super.onStop()
         val soat = SimpleDateFormat("dd:MM:yyyy_hh:mm:ss").format(Date())
         MyObeject.vaqt=soat
-        val user=User("","",123,12 ,gameNumber,soat,gameTrue,gameFalse,ItemName)
+        val user=User("","","123",12 ,gameNumber,soat,gameTrue,gameFalse,ItemName)
         if ((gameTrue!=0 && gameFalse!=0) || (gameTrue!=null && gameFalse!=null)){
             dataBase.insertItem(user)
         }

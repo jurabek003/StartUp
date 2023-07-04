@@ -9,7 +9,7 @@ interface UserDao {
 
     fun insertItem(user:User)
 
-    fun getitemSelect(number:Int):ArrayList<User>
+    fun getitemSelect(number:Int?):ArrayList<User>
 
     fun searchItem(searchQuery:String):ArrayList<User>
 

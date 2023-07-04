@@ -1,19 +1,22 @@
 package com.turgunboyevjurabek.startup.adapters
 
 import User
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.turgunboyevjurabek.startup.databinding.ItemRvBinding
+import com.turgunboyevjurabek.startup.madels.MyObeject
 
 
 class RvAdabter(val list: ArrayList<User>,val onClick: onClick):RecyclerView.Adapter<RvAdabter.Vh>() {
     inner class Vh(val itemRvBinding: ItemRvBinding):ViewHolder(itemRvBinding.root){
         fun onBind(user: User,position: Int){
-            itemRvBinding.itemName.text=user.nomi.toString()
-            itemRvBinding.itemDescription.text=user.description.toString()
-            itemRvBinding.itemGif.setImageResource(user.gifImage!!)
+
+            itemRvBinding.itemName.text=user.nomi.toString().trim()
+            MyObeject.nomi=user.nomi.toString()
+            itemRvBinding.itemGif.setImageURI(Uri.parse(user.gifImage))
 
             itemRvBinding.card.setOnClickListener {
                 onClick.select(user,position)

@@ -1,6 +1,7 @@
 package com.turgunboyevjurabek.startup.fragment.Itemlar
 
 import User
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -18,7 +19,7 @@ class ItemSearchFragment : Fragment() {
     ): View? {
         if (MyObeject.gif!=null && MyObeject.nomi!=null && MyObeject.description!=null){
             binding.searchName.setText(MyObeject.nomi.toString())
-            binding.selectGif.setImageResource(MyObeject.gif!!)
+            binding.selectGif.setImageURI(Uri.parse(MyObeject.gif))
             binding.searchDescription.setText(MyObeject.description)
         }
 

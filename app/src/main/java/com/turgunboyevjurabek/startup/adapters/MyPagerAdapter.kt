@@ -1,5 +1,6 @@
 package com.turgunboyevjurabek.startup.adapters
 import User
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -12,7 +13,7 @@ class MyPagerAdapter(val list: List<User>) :
         fun onBind(user: User,position: Int) {
             itemViewBinding.selectName.text=user.nomi.toString()
             itemViewBinding.selectDescription.text=user.description.toString()
-            itemViewBinding.selectGif.setImageResource(user.gifImage!!)
+            itemViewBinding.selectGif.setImageURI(Uri.parse(user.gifImage))
         }
 
     }
