@@ -20,8 +20,7 @@
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="10dp"
         app:cardCornerRadius="35dp"
-android:paddingVertical="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/scrol_view"
+        android:paddingVertical="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -39,197 +38,14 @@ android:paddingVertical="10dp"
             app:menu="@menu/my_menu_navigation" />
     </com.google.android.material.card.MaterialCardView>
 
-    <ScrollView
-        android:id="@+id/scrol_view"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/card_view_navigation"
-        tools:layout_editor_absoluteX="92dp">
-
-        <LinearLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_main"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintTop_toBottomOf="@+id/card_view_navigation" />
 
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginHorizontal="10dp"
-                android:layout_marginTop="15dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?selectableItemBackground"
-                android:paddingVertical="7dp"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="10dp"
-                app:rippleColor="@color/purple_700"
-                app:strokeColor="#FFD600"
-                app:strokeWidth="1dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="10dp"
-                    android:gravity="center"
-                    android:text="0"
-                    android:textColor="#FF6E40"
-                    android:textSize="27sp" />
-
-                <com.google.android.material.divider.MaterialDivider
-                    android:layout_width="2dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="fill_vertical"
-                    android:layout_marginVertical="5dp"
-                    android:layout_marginStart="35dp"
-                    app:dividerColor="#FF6E40" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="lorem, impsam dolor"
-                    android:textAllCaps="false"
-                    android:textColor="#FFAB00"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_harf"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginHorizontal="10dp"
-                android:layout_marginTop="15dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?selectableItemBackground"
-                android:paddingVertical="7dp"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="10dp"
-                app:rippleColor="@color/purple_700"
-                app:strokeColor="#FFD600"
-                app:strokeWidth="1dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="10dp"
-                    android:gravity="center"
-                    android:text="1"
-                    android:textColor="#FF6E40"
-                    android:textSize="27sp" />
-
-                <com.google.android.material.divider.MaterialDivider
-                    android:layout_width="2dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="fill_vertical"
-                    android:layout_marginVertical="5dp"
-                    android:layout_marginStart="35dp"
-                    app:dividerColor="#FF6E40" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Harflar"
-                    android:textAllCaps="false"
-                    android:textColor="#FFAB00"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_medik"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginHorizontal="10dp"
-                android:layout_marginTop="15dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?selectableItemBackground"
-                android:paddingVertical="7dp"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="10dp"
-                app:rippleColor="@color/purple_700"
-                app:strokeColor="#FFD600"
-                app:strokeWidth="1dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="10dp"
-                    android:gravity="center"
-                    android:text="2"
-                    android:textColor="#FF6E40"
-                    android:textSize="27sp" />
-
-                <com.google.android.material.divider.MaterialDivider
-                    android:layout_width="2dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="fill_vertical"
-                    android:layout_marginVertical="5dp"
-                    android:layout_marginStart="35dp"
-                    app:dividerColor="#FF6E40" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Meditsina"
-                    android:textAllCaps="false"
-                    android:textColor="#FFAB00"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_fan"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginHorizontal="10dp"
-                android:layout_marginTop="15dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?selectableItemBackground"
-                android:paddingVertical="7dp"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="10dp"
-                app:rippleColor="@color/purple_700"
-                app:strokeColor="#FFD600"
-                app:strokeWidth="1dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="10dp"
-                    android:gravity="center"
-                    android:text="3"
-                    android:textColor="#FF6E40"
-                    android:textSize="27sp" />
-
-                <com.google.android.material.divider.MaterialDivider
-                    android:layout_width="2dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="fill_vertical"
-                    android:layout_marginVertical="5dp"
-                    android:layout_marginStart="35dp"
-                    app:dividerColor="#FF6E40" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Fan"
-                    android:textAllCaps="false"
-                    android:textColor="#FFAB00"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-            </com.google.android.material.card.MaterialCardView>
-
-
-        </LinearLayout>
-    </ScrollView>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floating"
         android:layout_width="wrap_content"
