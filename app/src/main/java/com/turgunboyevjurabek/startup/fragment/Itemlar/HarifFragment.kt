@@ -34,20 +34,19 @@ class HarifFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-
         binding.selectGif.setOnClickListener {
             getImageContent.launch("image/*")
     }
-        val user=User(binding.edtNameItem.text.toString(),binding.edtDescriptionItem.text.toString(),
-                      pathIMage,MyObeject.number,0,"",0,0,"")
         dataBase= DataBase(requireContext())
         binding.btnAdd.setOnClickListener {
-            Toast.makeText(requireContext(), "${binding.edtNameItem.text}", Toast.LENGTH_SHORT).show()
-            Toast.makeText(requireContext(), "${binding.edtDescriptionItem.text}", Toast.LENGTH_SHORT).show()
+            if (!binding.edtNameItem.text.isNullOrEmpty() && !binding.edtDescriptionItem.text.isNullOrEmpty()){
+               val  user=User(binding.edtNameItem.text.toString(),binding.edtDescriptionItem.text.toString(),
+                    pathIMage,MyObeject.number,0,"",0,0,"")
                 dataBase.insertItem(user)
                 findNavController().navigate(R.id.fanFragment)
-        }
+            }
 
+        }
         return binding.root
     }
     var pathIMage=""

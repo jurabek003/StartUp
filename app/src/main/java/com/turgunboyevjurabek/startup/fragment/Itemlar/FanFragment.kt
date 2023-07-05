@@ -52,10 +52,7 @@ class FanFragment : Fragment(),onClick {
             findNavController().navigate(R.id.harifFragment, bundleOf("keyID2" to ID))
         }
 
-        return binding.root
-    }
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+
         dataBase=DataBase(requireContext())
         Toast.makeText(requireContext(), "${MyObeject.nomi}", Toast.LENGTH_SHORT).show()
         Toast.makeText(requireContext(), "${MyObeject.number}", Toast.LENGTH_SHORT).show()
@@ -63,15 +60,21 @@ class FanFragment : Fragment(),onClick {
             rvAdabter= RvAdabter(dataBase.getitemSelect(MyObeject.number),this)
             binding.rv3.adapter=rvAdabter
             rvAdabter.notifyDataSetChanged()
-            
-            val itemCount = rvAdabter.itemCount
-            if (itemCount > 0) {
-                binding.rv3.smoothScrollToPosition(itemCount - 1)
-            }
         }
+        Toast.makeText(requireContext(), "${dataBase.gameSelectItem(MyObeject.number!!)}", Toast.LENGTH_LONG).show()
+
+        return binding.root
+    }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        //val itemCount = rvAdabter.itemCount
+//            if (itemCount > 0) {
+//                binding.rv3.smoothScrollToPosition(itemCount - 1)
+//            }
 
 
-        binding.rv3.post{
+      /*  binding.rv3.post{
             val layoutManagaer =
                 LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, true).apply {
                     reverseLayout = true
@@ -108,6 +111,7 @@ class FanFragment : Fragment(),onClick {
                 }
             })
         }
+       */
     }
     var pathIMage=""
     private val getImageContent=registerForActivityResult(ActivityResultContracts.GetContent()){

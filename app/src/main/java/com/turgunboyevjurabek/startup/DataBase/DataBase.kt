@@ -47,6 +47,7 @@ class DataBase(context: Context):SQLiteOpenHelper(context,"Allambalo",null,6),Us
         contentValues.put("gameFalse",user.gameFalse)
         contentValues.put("Gnomi",user.Gnomi)
         db.insert("UserTable",null,contentValues)
+        db.isOpen
     }
 
     override fun getitemSelect(number2:Int?): ArrayList<User> {
@@ -61,7 +62,12 @@ class DataBase(context: Context):SQLiteOpenHelper(context,"Allambalo",null,6),Us
                     cursor.getString(1),
                     cursor.getString(2),
                     cursor.getString(3),
-                    cursor.getInt(4)
+                    cursor.getInt(4),
+                    cursor.getInt(5),
+                    cursor.getString(6),
+                    cursor.getInt(6),
+                    cursor.getInt(7),
+                    cursor.getString(6)
                 )
                 list.add(user)
             }while (cursor.moveToNext())
@@ -81,37 +87,6 @@ class DataBase(context: Context):SQLiteOpenHelper(context,"Allambalo",null,6),Us
                     cursor.getString(2),
                     cursor.getString(3),
                     cursor.getInt(4)
-                )
-                list.add(user)
-            }while (cursor.moveToNext())
-        }
-        return list
-    }
-
-    override fun gamaInsert(user: User) {
-        val db=writableDatabase
-        val contentValues=ContentValues()
-        contentValues.put("game",user.game )
-        contentValues.put("gameMemory",user.gameMemory)
-        contentValues.put("gameTrue",user.gameTrue)
-        contentValues.put("gameFalse",user.gameFalse)
-        contentValues.put("Gnomi",user.Gnomi)
-        db.insert("UserTable",null,contentValues)
-
-    }
-    override fun gameGet(): ArrayList<User> {
-        val list=ArrayList<User>()
-        val db=readableDatabase
-        val query="select *from UserTable"
-        val cursor=db.rawQuery(query,null)
-        if (cursor.moveToFirst()){
-            do {
-                val user=User(
-                    cursor.getInt(1),
-                    cursor.getString(2),
-                    cursor.getInt(3),
-                    cursor.getInt(4),
-                    cursor.getString(5)
                 )
                 list.add(user)
             }while (cursor.moveToNext())

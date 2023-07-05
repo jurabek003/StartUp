@@ -13,10 +13,6 @@ interface UserDao {
 
     fun searchItem(searchQuery:String):ArrayList<User>
 
-    fun gamaInsert(user: User)
-
-    fun gameGet():ArrayList<User>
-
     fun gameSelectItem(game:Int):ArrayList<User>
 
 }
