@@ -43,9 +43,9 @@ class HarifFragment : Fragment() {
                val  user=User(binding.edtNameItem.text.toString(),binding.edtDescriptionItem.text.toString(),
                     pathIMage,MyObeject.number,0,"",0,0,"")
                 dataBase.insertItem(user)
+                findNavController().popBackStack().not()
                 findNavController().navigate(R.id.fanFragment)
             }
-
         }
         return binding.root
     }

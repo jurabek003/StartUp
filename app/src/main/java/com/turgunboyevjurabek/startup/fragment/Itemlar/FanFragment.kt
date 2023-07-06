@@ -133,8 +133,9 @@ class FanFragment : Fragment(),onClick {
     }
 
     override fun select(user: User, position: Int) {
-        Toast.makeText(requireContext(), "${user.nomi}", Toast.LENGTH_SHORT).show()
-        Toast.makeText(requireContext(), "${user.description}", Toast.LENGTH_SHORT).show()
+        list= ArrayList()
+        list.addAll(dataBase.getItems())
+        findNavController().navigate(R.id.selectFragment, bundleOf("key11" to list,"keyP" to position))
     }
 
 }

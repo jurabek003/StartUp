@@ -202,7 +202,7 @@ class GameCupFragment : Fragment() {
         val soat = SimpleDateFormat("dd:MM:yyyy_hh:mm:ss").format(Date())
         MyObeject.vaqt=soat
         val user=User("","","123",12 ,gameNumber,soat,gameTrue,gameFalse,ItemName)
-        if ((gameTrue!=0 && gameFalse!=0) || (gameTrue!=null && gameFalse!=null)){
+        if (gameTrue!=0 && gameFalse!=0){
             dataBase.insertItem(user)
         }
     }

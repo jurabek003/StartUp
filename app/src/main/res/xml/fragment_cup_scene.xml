@@ -4,14 +4,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ConstraintSet android:id="@+id/start">
-        <Constraint android:id="@+id/My_scrol"
+
+        <Constraint
+            android:id="@+id/layner_game"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:alpha="0"
-            android:translationX="150dp" />
+            android:translationX="110dp" />
     </ConstraintSet>
 
-    <ConstraintSet android:id="@+id/end">
-        <Constraint android:id="@id/My_scrol" />
-    </ConstraintSet>
 
     <Transition
         app:constraintSetEnd="@id/end"

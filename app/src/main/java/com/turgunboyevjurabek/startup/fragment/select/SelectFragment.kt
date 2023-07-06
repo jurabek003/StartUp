@@ -44,6 +44,7 @@ class SelectFragment : Fragment() {
     private fun loadData() {
      list2=arguments?.getSerializable("key11") as ArrayList<User>
         val positions=arguments?.getInt("keyP")
+        Toast.makeText(requireContext(), "$list2", Toast.LENGTH_SHORT).show()
 
         myPagerAdapter=MyPagerAdapter(list2)
         binding.myViewpager2.adapter=myPagerAdapter

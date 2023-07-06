@@ -25,7 +25,6 @@ class GameFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         list= arguments?.getSerializable("key12") as ArrayList<User>
-
             randomSon()
 
         return binding.root
