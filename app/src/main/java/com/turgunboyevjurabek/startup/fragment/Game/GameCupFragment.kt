@@ -44,8 +44,12 @@ class GameCupFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        randomSon()
-
+        try {
+            randomSon()
+        }catch (e:StackOverflowError){
+            list.clear()
+            Toast.makeText(requireContext(), "vay blaa😡", Toast.LENGTH_SHORT).show()
+        }
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -63,7 +67,7 @@ class GameCupFragment : Fragment() {
 
         val size=list.size
         try {
-            if (size>=0){
+            if (size>5){
                 a = Random.nextInt(size)
                 b = Random.nextInt(size)
                 c = Random.nextInt(size)
@@ -86,11 +90,16 @@ class GameCupFragment : Fragment() {
             abs(f!!)
             abs(e!!)
         }
-
-        if (d==f || b==c || c==d || a==b || a==c ||a == d ||a==f || f==b || f==c ){
-            randomSon()
-            return
+        try {
+            if (d==f || b==c || c==d || a==b || a==c ||a == d ||a==f || f==b || f==c ){
+                randomSon()
+                return
+            }
+        }catch (e:StackOverflowError){
+            Toast.makeText(requireContext(), "Server hatoligi", Toast.LENGTH_SHORT).show()
+            
         }
+        
 
         binding.gameGif.setImageURI(Uri.parse(list[a!!].gifImage.toString()))
         binding.btn1.setText(list[b!!].nomi)

@@ -53,10 +53,28 @@ class CupFragment : Fragment(),Click {
     ): View? {
 
 
-        return binding.root
+    return binding.root
     }
+    override fun selectGame(position: Int,user2: User2) {
+        val list=ArrayList<User>()
 
-    override fun selectGame(position: Int) {
+        val dataBase=DataBase(requireContext())
+        list.addAll(dataBase.getitemSelect(position+1))
+        val dialog=BottomSheetDialog(requireContext())
+        val dilaogBottomsheetBinding=DilaogBottomsheetBinding.inflate(layoutInflater)
+        dialog.setContentView(dilaogBottomsheetBinding.root)
+        dilaogBottomsheetBinding.itemName.text=user2.ismi
+        dialog.show()
+        dilaogBottomsheetBinding.btnStart.setOnClickListener {
+            findNavController().navigate(R.id.gameCupFragment, bundleOf("keysItem" to list,"keyName" to user2.ismi,"keyNumber" to position+1 ))
+        }
+        val listTarih=ArrayList<User>()
+        if (!dataBase.gameSelectItem(position+1).isNullOrEmpty()){
+            listTarih.addAll(dataBase.gameSelectItem(position+1))
+            rvAdapterTArih=RvAdapterTArih(dataBase.gameSelectItem(position+1))
+            dilaogBottomsheetBinding.rvTarih.adapter=rvAdapterTArih
+            rvAdapterTArih.notifyDataSetChanged()
+        }
 
     }
 }

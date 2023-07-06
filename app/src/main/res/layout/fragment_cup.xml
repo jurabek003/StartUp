@@ -26,5 +26,4 @@
             tools:listitem="@layout/item_game_main" />
 
     </LinearLayout>
-
 </androidx.constraintlayout.motion.widget.MotionLayout>

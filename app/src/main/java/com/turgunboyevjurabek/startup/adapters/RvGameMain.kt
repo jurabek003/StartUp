@@ -13,8 +13,8 @@ class RvGameMain(val list: ArrayList<User2>,val click: Click):RecyclerView.Adapt
     inner class Vh(val itemGameMainBinding: ItemGameMainBinding):ViewHolder(itemGameMainBinding.root){
         fun onBind(user2: User2,position: Int){
             itemGameMainBinding.textItem.text=user2.ismi.toString()
-            itemGameMainBinding.root.setOnClickListener {
-                click.selectGame(position)
+            itemGameMainBinding.conslayaout1.setOnClickListener {
+                click.selectGame(position,user2)
             }
         }
     }
@@ -30,5 +30,5 @@ class RvGameMain(val list: ArrayList<User2>,val click: Click):RecyclerView.Adapt
     }
 }
 interface Click{
-    fun selectGame(position: Int)
+    fun selectGame(position: Int,user2: User2)
 }
