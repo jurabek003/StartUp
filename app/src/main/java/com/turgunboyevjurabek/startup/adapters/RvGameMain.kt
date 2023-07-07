@@ -29,8 +29,8 @@ class RvGameMain(val context: Context, val list: ArrayList<User2>,val click: Cli
                 list2.addAll(dataBase.gameSelectItem(i+1))
             }
             for (i in 0 until list.size){
-                list[i].cup1+=list2[i].gameTrue?.toInt()!!
-                list[i].cup2+=list2[i].gameFalse?.toInt()!!
+                list[i].cup1=list2[i].gameTrue?.toInt()!!
+                list[i].cup2=list2[i].gameFalse?.toInt()!!
             }
             itemGameMainBinding.conslayaout1.setOnClickListener {
                 click.selectGame(position,user2)

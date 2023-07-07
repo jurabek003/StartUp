@@ -10,4 +10,6 @@ object MyObeject {
     var listobj:ArrayList<User>?=null
     var medal:Int?=null
     var number:Int?=null
+    var cup1:Int?=0
+    var cup2:Int?=0
 }

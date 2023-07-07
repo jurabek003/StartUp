@@ -18,6 +18,7 @@ import com.turgunboyevjurabek.startup.adapters.RvAdapterTArih
 import com.turgunboyevjurabek.startup.adapters.RvGameMain
 import com.turgunboyevjurabek.startup.databinding.DilaogBottomsheetBinding
 import com.turgunboyevjurabek.startup.databinding.FragmentCupBinding
+import com.turgunboyevjurabek.startup.madels.MyObeject
 import com.turgunboyevjurabek.startup.madels.User2
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -43,6 +44,8 @@ class CupFragment : Fragment(),Click {
         list2.addAll(dataBase2.getItems())
         rvGameMain=RvGameMain(requireContext(),list2,this)
         binding.rvGame.adapter=rvGameMain
+        Toast.makeText(requireContext(), "${MyObeject.cup1 }---${MyObeject.cup2}", Toast.LENGTH_SHORT).show()
+
         cubok()
     }
     override fun onCreateView(
