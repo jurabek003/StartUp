@@ -48,7 +48,7 @@ class GameCupFragment : Fragment() {
             randomSon()
         }catch (e:StackOverflowError){
             list.clear()
-            Toast.makeText(requireContext(), "vay blaa😡", Toast.LENGTH_SHORT).show()
+
         }
     }
     override fun onCreateView(

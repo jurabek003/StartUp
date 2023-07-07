@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.snackbar.Snackbar
 import com.turgunboyevjurabek.startup.DataBase.DataBase
 import com.turgunboyevjurabek.startup.DataBase.DataBase2
 import com.turgunboyevjurabek.startup.R
@@ -52,9 +53,10 @@ class CupFragment : Fragment(),Click {
         savedInstanceState: Bundle?,
     ): View? {
 
-
+        cubok()
     return binding.root
     }
+
     override fun selectGame(position: Int,user2: User2) {
         val list=ArrayList<User>()
 
@@ -65,8 +67,14 @@ class CupFragment : Fragment(),Click {
         dialog.setContentView(dilaogBottomsheetBinding.root)
         dilaogBottomsheetBinding.itemName.text=user2.ismi
         dialog.show()
-        dilaogBottomsheetBinding.btnStart.setOnClickListener {
-            findNavController().navigate(R.id.gameCupFragment, bundleOf("keysItem" to list,"keyName" to user2.ismi,"keyNumber" to position+1 ))
+        dilaogBottomsheetBinding.btnStart.setOnClickListener {view->
+            if(list.size>5){
+                findNavController().navigate(R.id.gameCupFragment, bundleOf("keysItem" to list,"keyName" to user2.ismi,"keyNumber" to position+1 ))
+                dialog.cancel()
+            }else{
+                Toast.makeText(requireContext(), "iltimos oldin itemlarni kiriting so'ngra qayta urinib ko'ring", Toast.LENGTH_LONG).show()
+                dialog.cancel()
+            }
         }
         val listTarih=ArrayList<User>()
         if (!dataBase.gameSelectItem(position+1).isNullOrEmpty()){
@@ -77,4 +85,30 @@ class CupFragment : Fragment(),Click {
         }
 
     }
+    private fun cubok() {
+        val timeDay=SimpleDateFormat("dd:MM:yyyy").format(Date())
+        var count=0
+        val listTime2=ArrayList<Int>()
+        val listTime=ArrayList<User>()
+        for (i in 1 until list2.size+1){
+            listTime.addAll(dataBase.gameSelectItem(i))
+            for ( j in 1 until listTime.size+1){
+                if (listTime[j].gameMemory.contains(timeDay)){
+                   count++
+                }
+                if (j==listTime.size+1){
+                    listTime2[i]=count
+                    count=0
+                }
+            }
+        }
+
+        for (i in 1 until listTime2.size+1){
+            when(listTime2[i]){
+
+            }
+        }
+
+    }
+
 }

@@ -8,9 +8,12 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.turgunboyevjurabek.startup.databinding.ItemGameMainBinding
 import com.turgunboyevjurabek.startup.madels.User2
+import java.text.SimpleDateFormat
+import java.util.Date
 
 class RvGameMain(val list: ArrayList<User2>,val click: Click):RecyclerView.Adapter<RvGameMain.Vh>() {
     inner class Vh(val itemGameMainBinding: ItemGameMainBinding):ViewHolder(itemGameMainBinding.root){
+        val timeDay = SimpleDateFormat("dd:MM:yyyy").format(Date())
         fun onBind(user2: User2,position: Int){
             itemGameMainBinding.textItem.text=user2.ismi.toString()
             itemGameMainBinding.conslayaout1.setOnClickListener {
