@@ -6,8 +6,9 @@ import java.util.Date
 class User2 {
     var id:Int?=null
     var ismi:String?=null
-    var gameMemory2: String = SimpleDateFormat("dd.MM.yyyy_hh:mm:ss").format(Date())
-
+    var cup1:Int=0
+    var cup2:Int=0
+    var cup:Int=0
     constructor(id: Int?, ismi: String?) {
         this.id = id
         this.ismi = ismi
@@ -17,8 +18,27 @@ class User2 {
         this.ismi = ismi
     }
 
-    constructor(id: Int?, ismi: String?, gameMemory2: String) {
+    constructor()
+    constructor(ismi: String?, cup1: Int, cup2: Int) {
         this.ismi = ismi
-        this.gameMemory2 = gameMemory2
+        this.cup1 = cup1
+        this.cup2 = cup2
     }
+
+    constructor(id: Int?, ismi: String?, cup1: Int, cup2: Int, cup: Int) {
+        this.id = id
+        this.ismi = ismi
+        this.cup1 = cup1
+        this.cup2 = cup2
+        this.cup = cup
+    }
+
+    constructor(ismi: String?, cup1: Int, cup2: Int, cup: Int) {
+        this.ismi = ismi
+        this.cup1 = cup1
+        this.cup2 = cup2
+        this.cup = cup
+    }
+
+
 }

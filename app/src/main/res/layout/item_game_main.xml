@@ -12,7 +12,7 @@
         android:layout_margin="15dp"
         android:backgroundTint="#FF6D00"
         app:cardCornerRadius="50dp"
-        app:strokeColor="#6200EA"
+        app:strokeColor="#AEEA00"
         app:strokeWidth="1dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -26,6 +26,7 @@
             <ImageView
                 android:id="@+id/image_cup"
                 android:layout_width="50dp"
+                android:layout_margin="10dp"
                 android:layout_height="match_parent"
                 android:src="@drawable/ic_medal"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -47,18 +48,43 @@
                 android:id="@+id/tht_true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="50dp"
+                android:layout_marginEnd="60dp"
                 android:text="To'gri"
                 android:textColor="@color/white"
                 android:textSize="17sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/true_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:textColor="#0026FF"
+                android:textSize="17sp"
+                android:layout_marginStart="15dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tht_true"
+                app:layout_constraintTop_toTopOf="@+id/tht_true"
+                app:layout_constraintStart_toEndOf="@+id/tht_true"
+                />
+ <TextView
+                android:id="@+id/false_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:textColor="#0026FF"
+                android:textSize="17sp"
+                android:layout_marginStart="15dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tht_false"
+                app:layout_constraintTop_toTopOf="@+id/tht_false"
+                app:layout_constraintStart_toEndOf="@+id/tht_false"
+                />
 
             <TextView
                 android:id="@+id/tht_false"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
                 android:text="Noto'g'ri"
                 android:textColor="@color/white"
                 android:textSize="17sp"

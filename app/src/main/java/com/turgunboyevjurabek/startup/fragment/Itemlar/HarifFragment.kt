@@ -2,7 +2,6 @@ package com.turgunboyevjurabek.startup.fragment.Itemlar
 
 import User
 import android.annotation.SuppressLint
-import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,14 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.turgunboyevjurabek.startup.DataBase.DataBase
 import com.turgunboyevjurabek.startup.R
-import com.turgunboyevjurabek.startup.adapters.RvAdabter
-import com.turgunboyevjurabek.startup.adapters.onClick
 import com.turgunboyevjurabek.startup.databinding.DialogMaterialBinding
 import com.turgunboyevjurabek.startup.databinding.FragmentHarifBinding
 import com.turgunboyevjurabek.startup.madels.MyObeject

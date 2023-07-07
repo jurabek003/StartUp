@@ -5,26 +5,21 @@ import android.annotation.SuppressLint
 import android.content.DialogInterface
 import android.net.Uri
 import android.os.Bundle
-import android.os.Handler
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import com.turgunboyevjurabek.startup.DataBase.DataBase
 import com.turgunboyevjurabek.startup.R
 import com.turgunboyevjurabek.startup.databinding.FragmentGameCupBinding
-import com.turgunboyevjurabek.startup.madels.GameUser
 import com.turgunboyevjurabek.startup.madels.MyObeject
-import java.lang.IllegalStateException
 import java.text.SimpleDateFormat
 import java.util.Date
 import kotlin.math.abs
 import kotlin.random.Random
-import kotlin.random.nextInt
 
 class GameCupFragment : Fragment() {
     private val binding by lazy { FragmentGameCupBinding.inflate(layoutInflater) }

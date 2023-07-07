@@ -5,6 +5,7 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import com.turgunboyevjurabek.startup.adapters.RvGameMain
 
 class DataBase(context: Context):SQLiteOpenHelper(context,"Allambalo",null,6),UserDao {
     override fun onCreate(db: SQLiteDatabase?) {
