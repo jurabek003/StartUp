@@ -11,18 +11,17 @@ import com.turgunboyevjurabek.startup.madels.MyObeject
 
 class RvAdapterTArih(val list: ArrayList<User>):RecyclerView.Adapter<RvAdapterTArih.Vh>() {
     inner class Vh(val itemrvTarihBinding: ItemrvTarihBinding):ViewHolder(itemrvTarihBinding.root){
-        var count1=0
-        var count2=0
+//        var count1=0
+//        var count2=0
         fun onBind(user: User){
 
             itemrvTarihBinding.thtItemName.text=user.Gnomi.toString()
             itemrvTarihBinding.thtTime.text=user.gameMemory
             itemrvTarihBinding.thtItemTrue.text=user.gameTrue?.toInt().toString()
             itemrvTarihBinding.thtItemFalse.text=user.gameFalse?.toInt().toString()
-            count1+=user.gameTrue?.toInt()!!
-            count2+=user.gameFalse?.toInt()!!
-            MyObeject.cup1 = MyObeject.cup1!!
-            MyObeject.cup2 = MyObeject.cup2!! + user.gameFalse?.toInt()!!
+
+//    MyObeject.cup1 = MyObeject.cup1?.plus(user.gameTrue!!)
+//    MyObeject.cup2 = MyObeject.cup2?.plus(user.gameFalse!!)
 
         }
     }

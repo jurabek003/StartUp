@@ -1,6 +1,7 @@
 package com.turgunboyevjurabek.startup.fragment
 
 import User
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -18,6 +19,7 @@ class SearchFragment : Fragment() {
 private val binding by lazy { FragmentSearchBinding.inflate(layoutInflater) }
     private lateinit var rvAdabter: RvAdabter
     private lateinit var list: ArrayList<User>
+    private lateinit var list2: ArrayList<User>
     private lateinit var dataBase: DataBase
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,9 +58,16 @@ private val binding by lazy { FragmentSearchBinding.inflate(layoutInflater) }
     private fun loadData() {
         dataBase= DataBase(requireContext())
         list= ArrayList()
+        list2= ArrayList()
         list.addAll(dataBase.getItems())
-
-     rvAdabter= RvAdabter(list,object:onClick{
+        for (i in 0 until list.size){
+            if(!list[i].nomi.equals("") && !list[i].description.equals("")){
+                list2.addAll(list)
+            }
+        }
+     rvAdabter = RvAdabter(list2,
+         @SuppressLint("SuspiciousIndentation")
+         object:onClick{
          override fun select(user: User, position: Int) {
              MyObeject.nomi=user.nomi.toString()
              MyObeject.description=user.description.toString()

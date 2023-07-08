@@ -52,7 +52,7 @@ class HarifFragment : Fragment() {
 
         val inputStrim=requireContext().contentResolver.openInputStream(it)
         val name = SimpleDateFormat("yyyyMMdd_hh_mm_ss").format(Date())
-        val file= File(requireContext().filesDir, "$name.jpg")
+        val file= File(requireContext().filesDir, "$name.gif")
         val fileOutputStream = FileOutputStream(file)
         inputStrim?.copyTo(fileOutputStream)
         inputStrim?.close()

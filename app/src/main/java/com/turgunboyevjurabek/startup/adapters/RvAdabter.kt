@@ -14,9 +14,9 @@ class RvAdabter(val list: ArrayList<User>,val onClick: onClick):RecyclerView.Ada
     inner class Vh(val itemRvBinding: ItemRvBinding):ViewHolder(itemRvBinding.root){
         fun onBind(user: User,position: Int){
 
-            itemRvBinding.itemName.text=user.nomi.toString().trim()
-            MyObeject.nomi=user.nomi.toString()
-            itemRvBinding.itemGif.setImageURI(Uri.parse(user.gifImage))
+                itemRvBinding.itemName.text=user.nomi.toString().trim()
+                MyObeject.nomi=user.nomi.toString()
+                itemRvBinding.itemGif.setImageURI(Uri.parse(user.gifImage))
 
             itemRvBinding.card.setOnClickListener {
                 onClick.select(user,position)
