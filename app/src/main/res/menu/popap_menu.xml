@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single"
+        android:enabled="true">
+        <item android:id="@+id/theme_id"
+            android:title="Theme"/>
+        <item android:id="@+id/exit_id"
+            android:title="Exit"/>
+        <item android:id="@+id/language_id"
+            android:title="Language"/>
+    </group>
+</menu>

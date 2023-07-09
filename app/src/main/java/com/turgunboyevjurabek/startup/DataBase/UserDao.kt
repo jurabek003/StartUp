@@ -15,4 +15,6 @@ interface UserDao {
 
     fun gameSelectItem(game:Int):ArrayList<User>
 
+    fun NotEquelse(str:String?):ArrayList<User>
+
 }

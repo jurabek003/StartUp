@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import com.turgunboyevjurabek.startup.adapters.RvGameMain
 
-class DataBase(context: Context):SQLiteOpenHelper(context,"Allambalo",null,6),UserDao {
+class DataBase(context: Context):SQLiteOpenHelper(context,"Allambalo",null,8),UserDao {
     override fun onCreate(db: SQLiteDatabase?) {
         val query="create table UserTable(id integer not null primary key  autoincrement unique, nomi text not null , description text not null, image text not null, number integer not null,game integer not null, gameMemory text not null, gameTrue integer not null, gameFalse integer not null, Gnomi text not null )"
         //val query2="create table GamesTable(id integer not null primary key autoincrement unique, game integer not null, gameMemory text not null, gameTrue integer not null, gameFalse integer not null, Gnomi text not null) "
@@ -116,6 +116,31 @@ class DataBase(context: Context):SQLiteOpenHelper(context,"Allambalo",null,6),Us
                     )
                     list.add(user)
                 }while (cursor.moveToNext())
+        }
+        return list
+    }
+
+    override fun NotEquelse(str: String?): ArrayList<User> {
+        val list=ArrayList<User>()
+        val db=readableDatabase
+        val query="select *from UserTable where  nomi != ?"
+        val cursor=db.rawQuery(query, arrayOf(str.toString()))
+        if (cursor.moveToFirst()){
+            do {
+                val user=User(
+                    cursor.getInt(0),
+                    cursor.getString(1),
+                    cursor.getString(2),
+                    cursor.getString(3),
+                    cursor.getInt(4),
+                    cursor.getInt(5),
+                    cursor.getString(6),
+                    cursor.getInt(6),
+                    cursor.getInt(7),
+                    cursor.getString(6)
+                )
+                list.add(user)
+            }while (cursor.moveToNext())
         }
         return list
     }

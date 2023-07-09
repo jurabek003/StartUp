@@ -1,13 +1,18 @@
 package com.turgunboyevjurabek.startup.fragment
 
 import User
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.provider.ContactsContract.RawContacts.Data
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.PopupMenu
 import android.widget.Toast
+import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -27,6 +32,7 @@ import java.lang.NullPointerException
 class HomeFragment : Fragment(),SelectClick {
     private lateinit var dataBase: DataBase
     private lateinit var dataBase2: DataBase2
+    var isChacced=true
     private val binding by lazy { FragmentHomeBinding.inflate(layoutInflater) }
     private lateinit var list: ArrayList<User2>
     private lateinit var rvAdapterMain: RvAdapterMain
@@ -38,6 +44,7 @@ class HomeFragment : Fragment(),SelectClick {
             binding.rvMain.adapter=rvAdapterMain
         }
     }
+    @RequiresApi(Build.VERSION_CODES.P)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -72,6 +79,7 @@ class HomeFragment : Fragment(),SelectClick {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.P)
     private fun forBtnNavigation() {
         binding.btnNavigation.setOnItemSelectedListener {
             when(it.itemId){
@@ -85,9 +93,28 @@ class HomeFragment : Fragment(),SelectClick {
                 }
                 R.id.btn_medal->{
                     findNavController().navigate(R.id.cupFragment)
-
                 }
-
+                R.id.btn_settings->{
+                    val popapMenu=PopupMenu(requireContext(),binding.btnNavigation)
+                    popapMenu.inflate(R.menu.popap_menu)
+                    popapMenu.show()
+                    popapMenu.setOnMenuItemClickListener {
+                        when(it.itemId){
+                            R.id.theme_id->{
+                                if (isChacced){
+                                    isChacced=false
+                                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                                }else{
+                                    isChacced=true
+                                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY)
+                                }
+                            }
+                        }
+                        true
+                    }
+                }
+                R.id.exit_id->{
+                }
             }
             true
         }
